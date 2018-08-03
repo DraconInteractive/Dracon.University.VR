@@ -82,6 +82,11 @@ public class AI_Behaviour : MonoBehaviour
         return false;
     }
 
+    public bool CheckStay ()
+    {
+        return companion.stay;
+    }
+
     public void MoveToPlayer ()
     {
         companion.ClearAction();

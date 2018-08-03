@@ -10,17 +10,24 @@ public class Companion : MonoBehaviour {
 
     public float moveSpeed, rotateSpeed, hoverFrequency, hoverMagnitude;
 
-    AudioSource tapSound;
+    public AudioSource teleportSound, talkSource;
+    public AudioClip[] talkThreads;
+    public GameObject uiContainer;
 
+    public bool stay, trail;
     private void Awake()
     {
-        tapSound = GetComponent<AudioSource>();
+        teleportSound = GetComponent<AudioSource>();
     }
     private void HandHoverUpdate(Hand hand)
     {
-        if (hand.GetStandardInteractionButtonDown() || ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip)))
+        if ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))
         {
-            TapEvent();
+            GripEvent();
+        }
+        if ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger))
+        {
+            TriggerEvent();
         }
     }
 
@@ -58,17 +65,17 @@ public class Companion : MonoBehaviour {
         yield break;
     }
 
-    public void TapEvent ()
+    public void GripEvent ()
     {
         //transform.position = Camera.main.transform.position + Random.insideUnitSphere * 10;
-        StartCoroutine(TapRoutine());
+        StartCoroutine(GripRoutine());
     }
 
-    IEnumerator TapRoutine ()
+    IEnumerator GripRoutine ()
     {
         GetComponent<AI_Behaviour>().disabled = true;
         ClearAction();
-        tapSound.Play();
+        teleportSound.Play();
 
         float original = transform.localScale.x;
         for (float f = 1; f > 0; f -= Time.deltaTime * 2)
@@ -83,5 +90,36 @@ public class Companion : MonoBehaviour {
 
         GetComponent<AI_Behaviour>().disabled = false;
         yield break;
+    }
+
+    public void TriggerEvent ()
+    {
+        ToggleUI();
+    }
+
+    public void ToggleUI()
+    {
+        uiContainer.SetActive(!uiContainer.activeSelf);
+    }
+
+    public void ToggleUI (bool on)
+    {
+        uiContainer.SetActive(on);
+    }
+
+    public void ToggleStay ()
+    {
+        stay = !stay;
+    }
+
+    public void ToggleTrail ()
+    {
+        trail = !trail;
+    }
+
+    public void Talk ()
+    {
+        talkSource.clip = talkThreads[Random.Range(0, talkThreads.Length)];
+        talkSource.Play();
     }
 }
