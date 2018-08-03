@@ -4,8 +4,6 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 public class HUD_Object : MonoBehaviour {
-
-    bool attached;
     Hand attachedHand;
 
     Vector3 oldPosition;

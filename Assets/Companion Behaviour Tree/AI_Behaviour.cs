@@ -10,26 +10,33 @@ public class AI_Behaviour : MonoBehaviour
 {
     //Behaviour tree integration for AI
     public RootNode rootNode;
-
+    Companion companion;
     public string current;
-    // Use this for initialization
-    void Start()
-    {
 
-    }
+    public float followDist;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        companion = GetComponent<Companion>();
+        StartCoroutine(TimedEvaluation());
+    } 
+
+    IEnumerator TimedEvaluation ()
+    {
+        while (true)
         {
             EvaluateTree();
+            yield return new WaitForSeconds(0.2f);
         }
+        yield break;
     }
 
     public void EvaluateTree()
     {
-
+        if (companion == null)
+        {
+            companion = GetComponent<Companion>();
+        }
         BehaviourNode currentNode = rootNode.childNode;
         while (currentNode is ControlNode)
         {
@@ -56,12 +63,36 @@ public class AI_Behaviour : MonoBehaviour
                 Invoke(e.methodName, 0);
                 current = e.methodName;
             }
-
-
-
         }
     }
 
-    
+    public bool WithinFollowDist ()
+    {
+        Transform cam = Camera.main.transform;
+        Vector3 targetPoint = cam.position + cam.transform.right * 1f + cam.transform.forward * 1;
+        float dist = Vector3.Distance(transform.position, targetPoint);
+        if (dist < followDist)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void MoveToPlayer ()
+    {
+        companion.ClearAction();
+        companion.actionRoutine = companion.StartCoroutine(companion.MoveToPlayer());
+    }
+
+    public void Attend ()
+    {
+        companion.ClearAction();
+        companion.actionRoutine = companion.StartCoroutine(companion.Attend());
+    }
+
+    public void Wait ()
+    {
+        companion.ClearAction();
+    }
 }
 
