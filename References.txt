@@ -1,3 +1,7 @@
 Steam VR Plugin
 This forum for UI overlay shader - https://answers.unity.com/questions/878667/world-space-canvas-on-top-of-everything.html
 cube PROTOTYPE a - asset store, free. grayshape
+Deadshot headset by hmxoho - https://free3d.com/3d-model/deadshot-80644.html
+Motorcycle helment v2 by printable models - https://free3d.com/3d-model/motorcycle-helmet-v2--886241.html
+crosshair - https://www.google.com.au/imgres?imgurl=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Fart-design-and-development-vol-2%2F64%2F092-512.png&imgrefurl=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F483129%2Fcrosshair_shoot_symbol_target_icon&docid=ZZjS5QKYLdSZMM&tbnid=yKIQTvmaRGFkFM%3A&vet=10ahUKEwi9j5zG7tDcAhWIa7wKHcxWDIcQMwikAigqMCo..i&w=512&h=512&bih=898&biw=1903&q=target%20icon&ved=0ahUKEwi9j5zG7tDcAhWIa7wKHcxWDIcQMwikAigqMCo&iact=mrc&uact=8
+location arrow -http://www.free-icons-download.net/location-arrow-icon-64986/

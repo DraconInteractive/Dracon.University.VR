@@ -21,6 +21,7 @@ public class HUD_Object : MonoBehaviour {
                 {
                     //Cycle UI Mode
                     UIController.controller.CycleMode();
+                    UIController.controller.ToggleModeUI(true);
                 }
                 else
                 {
@@ -53,9 +54,12 @@ public class HUD_Object : MonoBehaviour {
                 {
                     if (col.transform.tag == "Head")
                     {
-                        print("HUD Equipped");
+                        //print("HUD Equipped");
                         onHead = true;
-                        GetComponent<Renderer>().enabled = false;
+                        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                        {
+                            r.enabled = false;
+                        }
                         UIController.controller.SetMode(UIController.Mode.Targeting);
                         transform.parent = col.transform;
                         transform.localPosition = Vector3.zero;
@@ -65,4 +69,19 @@ public class HUD_Object : MonoBehaviour {
         }
     }
 
+    private void OnHandHoverBegin(Hand hand)
+    {
+        //print("Hand hover enter");
+        if (onHead)
+        {
+            UIController.controller.ToggleModeUI(true);
+        }
+    }
+
+
+    private void OnHandHoverEnd(Hand hand)
+    {
+        //print("Hand hover exit");
+        UIController.controller.ToggleModeUI(false);
+    }
 }

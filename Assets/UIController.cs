@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
@@ -18,9 +19,12 @@ public class UIController : MonoBehaviour {
 
     public AudioSource uiAudio;
     public AudioClip clickSound;
+
+    public Image defaultModeUI, targetModeUI, pathfindModeUI;
 	// Use this for initialization
 	void Awake () {
         controller = this;
+        ToggleModeUI(false);
 	}
 	
 	// Update is called once per frame
@@ -81,6 +85,27 @@ public class UIController : MonoBehaviour {
                 break;
             case Mode.PathFinding:
                 SetMode(Mode.Default);
+                break;
+        }
+    }
+
+    public void ToggleModeUI (bool on)
+    {
+        print("Toggling Mode UI: " + on);
+        defaultModeUI.enabled = false;
+        targetModeUI.enabled = false;
+        pathfindModeUI.enabled = false;
+
+        switch (activeMode)
+        {
+            case Mode.Default:
+                defaultModeUI.enabled = on;
+                break;
+            case Mode.Targeting:
+                targetModeUI.enabled = on;
+                break;
+            case Mode.PathFinding:
+                pathfindModeUI.enabled = on;
                 break;
         }
     }
