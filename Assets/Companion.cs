@@ -8,7 +8,7 @@ public class Companion : MonoBehaviour {
 
     public Coroutine actionRoutine;
 
-    public float moveSpeed, rotateSpeed;
+    public float moveSpeed, rotateSpeed, hoverFrequency, hoverMagnitude;
 
     AudioSource tapSound;
 
@@ -50,9 +50,9 @@ public class Companion : MonoBehaviour {
         {
             Transform cam = Camera.main.transform;
             Vector3 targetPoint = transform.position;
-            targetPoint.y = cam.position.y + Mathf.Sin(Time.time);
+            targetPoint.y = cam.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(Camera.main.transform.position - transform.position).normalized, rotateSpeed);
-            transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime)
+            transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
             yield return null;
         }
         yield break;
@@ -60,7 +60,28 @@ public class Companion : MonoBehaviour {
 
     public void TapEvent ()
     {
-        transform.position = Camera.main.transform.position + Random.insideUnitSphere * 10;
+        //transform.position = Camera.main.transform.position + Random.insideUnitSphere * 10;
+        StartCoroutine(TapRoutine());
+    }
+
+    IEnumerator TapRoutine ()
+    {
+        GetComponent<AI_Behaviour>().disabled = true;
+        ClearAction();
         tapSound.Play();
+
+        float original = transform.localScale.x;
+        for (float f = 1; f > 0; f -= Time.deltaTime * 2)
+        {
+            transform.localScale = Vector3.one * original * f;
+            yield return null;
+        }
+
+        transform.position = Camera.main.transform.position + Camera.main.transform.forward * -2;
+
+        transform.localScale = Vector3.one * original;
+
+        GetComponent<AI_Behaviour>().disabled = false;
+        yield break;
     }
 }

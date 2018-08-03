@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 public class HUD_Object : MonoBehaviour {
+    bool onHead = false;
     Hand attachedHand;
 
     Vector3 oldPosition;
@@ -16,16 +17,23 @@ public class HUD_Object : MonoBehaviour {
         {
             if (hand.currentAttachedObject != gameObject)
             {
-                // Save our position/rotation so that we can restore it when we detach
-                oldPosition = transform.position;
-                oldRotation = transform.rotation;
+                if (onHead)
+                {
+                    //Cycle UI Mode
+                    UIController.controller.CycleMode();
+                }
+                else
+                {
+                    // Call this to continue receiving HandHoverUpdate messages,
+                    // and prevent the hand from hovering over anything else
+                    hand.HoverLock(GetComponent<Interactable>());
 
-                // Call this to continue receiving HandHoverUpdate messages,
-                // and prevent the hand from hovering over anything else
-                hand.HoverLock(GetComponent<Interactable>());
+                    // Attach this object to the hand
+                    hand.AttachObject(gameObject, attachmentFlags);
+                }
+                
 
-                // Attach this object to the hand
-                hand.AttachObject(gameObject, attachmentFlags);
+                
             }
             else
             {
@@ -46,8 +54,11 @@ public class HUD_Object : MonoBehaviour {
                     if (col.transform.tag == "Head")
                     {
                         print("HUD Equipped");
-                        Destroy(this.gameObject);
+                        onHead = true;
+                        GetComponent<Renderer>().enabled = false;
                         UIController.controller.SetMode(UIController.Mode.Targeting);
+                        transform.parent = col.transform;
+                        transform.localPosition = Vector3.zero;
                     }
                 }
             }

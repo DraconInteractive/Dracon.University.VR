@@ -15,6 +15,7 @@ public class AI_Behaviour : MonoBehaviour
 
     public float followDist;
 
+    public bool disabled;
     private void Start()
     {
         companion = GetComponent<Companion>();
@@ -25,7 +26,10 @@ public class AI_Behaviour : MonoBehaviour
     {
         while (true)
         {
-            EvaluateTree();
+            if (!disabled)
+            {
+                EvaluateTree();
+            }
             yield return new WaitForSeconds(0.2f);
         }
         yield break;
