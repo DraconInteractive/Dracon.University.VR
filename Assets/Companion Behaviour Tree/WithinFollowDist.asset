@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: WithinFollowDist
   m_EditorClassIdentifier: 
   methodName: WithinFollowDist
-  positive: {fileID: 11400000, guid: 8d1c01c423090b140b2efdd142b60750, type: 2}
+  positive: {fileID: 11400000, guid: e62e376ba9355774991852e8966e5930, type: 2}
   negative: {fileID: 11400000, guid: dfa20c0c646b3334991a90da08955bd9, type: 2}

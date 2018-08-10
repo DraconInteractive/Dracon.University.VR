@@ -73,8 +73,7 @@ public class AI_Behaviour : MonoBehaviour
     public bool WithinFollowDist ()
     {
         Transform cam = Camera.main.transform;
-        Vector3 targetPoint = cam.position + cam.transform.right * 1f + cam.transform.forward * 1;
-        float dist = Vector3.Distance(transform.position, targetPoint);
+        float dist = Vector3.Distance(transform.position, cam.position);
         if (dist < followDist)
         {
             return true;
@@ -87,6 +86,10 @@ public class AI_Behaviour : MonoBehaviour
         return companion.stay;
     }
 
+    public bool CheckStare ()
+    {
+        return (companion.stareCounter > 0.75f);
+    }
     public void MoveToPlayer ()
     {
         companion.ClearAction();

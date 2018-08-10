@@ -15,9 +15,29 @@ public class Companion : MonoBehaviour {
     public GameObject uiContainer;
 
     public bool stay, trail;
+
+    public float stareCounter;
+    public bool staredAt;
+
     private void Awake()
     {
         teleportSound = GetComponent<AudioSource>();
+    }
+
+    private void LateUpdate()
+    {
+        if (staredAt)
+        {
+            stareCounter += Time.deltaTime;
+            staredAt = false;
+        }
+        else
+        {
+            if (stareCounter > 0)
+            {
+                stareCounter = 0;
+            }
+        }
     }
     private void HandHoverUpdate(Hand hand)
     {
@@ -43,9 +63,12 @@ public class Companion : MonoBehaviour {
         while (true)
         {
             Transform cam = Camera.main.transform;
-            Vector3 targetPoint = cam.position + cam.transform.right * 1f + cam.transform.forward * 1;
+            float distanceOffset = 3;
+
+            Vector3 targetPoint = cam.position + cam.transform.right * 1 + cam.transform.forward * distanceOffset;
             transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(Camera.main.transform.position - transform.position).normalized, rotateSpeed);
+            Quaternion rotTo = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTo, rotateSpeed);
             yield return null;
         }
         yield break;
@@ -56,9 +79,11 @@ public class Companion : MonoBehaviour {
         while (true)
         {
             Transform cam = Camera.main.transform;
-            Vector3 targetPoint = transform.position;
+            Vector3 targetPoint = cam.position + cam.forward * 2;
             targetPoint.y = cam.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(Camera.main.transform.position - transform.position).normalized, rotateSpeed);
+            Quaternion rotTo = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTo, rotateSpeed);
+
             transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
             yield return null;
         }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 788797b741743c246a9f6cd06b72241d, type: 3}
-  m_Name: CheckStay
+  m_Name: CheckStare
   m_EditorClassIdentifier: 
-  methodName: CheckStay
-  positive: {fileID: 11400000, guid: e62e376ba9355774991852e8966e5930, type: 2}
-  negative: {fileID: 11400000, guid: 4fcaef132ff474a46b0a84064b3acf71, type: 2}
+  methodName: CheckStare
+  positive: {fileID: 11400000, guid: 8d1c01c423090b140b2efdd142b60750, type: 2}
+  negative: {fileID: 11400000, guid: 88e0776dc0d8ddf4594b3f160d847fbf, type: 2}
