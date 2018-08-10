@@ -13,7 +13,7 @@ public class AI_Behaviour : MonoBehaviour
     Companion companion;
     public string current;
 
-    public float followDist;
+    public float followDist, reachingDist;
 
     public bool disabled;
     private void Start()
@@ -90,6 +90,12 @@ public class AI_Behaviour : MonoBehaviour
     {
         return (companion.stareCounter > 0.75f);
     }
+
+    public bool WithinReachingDistance ()
+    {
+        return (Vector3.Distance(companion.transform.position, Camera.main.transform.position) < reachingDist);
+    }
+
     public void MoveToPlayer ()
     {
         companion.ClearAction();

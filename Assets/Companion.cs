@@ -79,7 +79,7 @@ public class Companion : MonoBehaviour {
         while (true)
         {
             Transform cam = Camera.main.transform;
-            Vector3 targetPoint = cam.position + (transform.position - cam.position).normalized * 2;
+            Vector3 targetPoint = cam.position + (transform.position - cam.position).normalized * 1;
             targetPoint.y = cam.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
             Quaternion rotTo = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTo, rotateSpeed);

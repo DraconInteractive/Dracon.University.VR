@@ -1207,6 +1207,7 @@ MonoBehaviour:
   rootNode: {fileID: 11400000, guid: 2bdcec1a8447ec94186c315282cd7a79, type: 2}
   current: 
   followDist: 4
+  reachingDist: 1.5
   disabled: 0
 --- !u!114 &114494165611233316
 MonoBehaviour:
