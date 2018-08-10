@@ -105,6 +105,7 @@ public class AI_Behaviour : MonoBehaviour
     public void Wait ()
     {
         companion.ClearAction();
+        companion.actionRoutine = companion.StartCoroutine(companion.Idle());
     }
 }
 

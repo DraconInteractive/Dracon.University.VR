@@ -79,7 +79,7 @@ public class Companion : MonoBehaviour {
         while (true)
         {
             Transform cam = Camera.main.transform;
-            Vector3 targetPoint = cam.position + cam.forward * 2;
+            Vector3 targetPoint = cam.position + (transform.position - cam.position).normalized * 2;
             targetPoint.y = cam.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
             Quaternion rotTo = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTo, rotateSpeed);
@@ -90,6 +90,18 @@ public class Companion : MonoBehaviour {
         yield break;
     }
 
+    public IEnumerator Idle ()
+    {
+        while (true)
+        {
+            Vector3 targetPoint = transform.position;
+            targetPoint.y = Camera.main.transform.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
+            transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        
+        yield break;
+    }
     public void GripEvent ()
     {
         //transform.position = Camera.main.transform.position + Random.insideUnitSphere * 10;
