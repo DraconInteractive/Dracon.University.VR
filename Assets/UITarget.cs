@@ -8,6 +8,13 @@ public class UITarget : MonoBehaviour {
     public GameObject graphic;
     bool active;
 
+    public enum TargetType
+    {
+        Enemy,
+        Ally
+    };
+
+    public TargetType type;
     private void Awake ()
     {
         UIController.targets.Add(this);

@@ -109,4 +109,27 @@ public class UIController : MonoBehaviour {
                 break;
         }
     }
+
+    public static UITarget GetGazeEnemy ()
+    {
+        float bAngle = float.MaxValue;
+        UITarget ret = null;
+        foreach (UITarget target in targets)
+        {
+            if (target.type == UITarget.TargetType.Enemy)
+            {
+                Vector3 vTo = target.transform.position - Camera.main.transform.position;
+                float angle = Quaternion.Angle(Quaternion.LookRotation(Camera.main.transform.forward), Quaternion.LookRotation(vTo));
+
+                if (angle < bAngle)
+                {
+                    bAngle = angle;
+                    ret = target;
+                }
+            }
+            
+        }
+
+        return ret;
+    }
 }
