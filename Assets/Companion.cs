@@ -14,11 +14,12 @@ public class Companion : MonoBehaviour {
     public AudioClip[] talkThreads;
     public GameObject uiContainer;
 
-    public bool stay, trail;
+    public bool stay, trailing;
 
     public float stareCounter;
     public bool staredAt;
 
+    public TrailRenderer trail;
     private void Awake()
     {
         teleportSound = GetComponent<AudioSource>();
@@ -39,6 +40,7 @@ public class Companion : MonoBehaviour {
             }
         }
     }
+
     private void HandHoverUpdate(Hand hand)
     {
         if ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))
@@ -151,7 +153,9 @@ public class Companion : MonoBehaviour {
 
     public void ToggleTrail ()
     {
-        trail = !trail;
+        trailing = !trailing;
+        trail.enabled = trailing;
+        trail.Clear();
     }
 
     public void Talk ()

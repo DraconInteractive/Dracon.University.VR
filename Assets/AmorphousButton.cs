@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR.InteractionSystem;
 
 public class AmorphousButton : MonoBehaviour {
     public ParticleSystem system;
     public Color farColor, closeColor, activeColor;
     bool activated = false;
+
+    public UnityEvent testEvent;
 	// Update is called once per frame
 	void Update () {
         if (system != null && system.particleCount > 0)
