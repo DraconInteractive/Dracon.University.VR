@@ -5,10 +5,6 @@ using Valve.VR.InteractionSystem;
 
 public class HUD_Object : MonoBehaviour {
     bool onHead = false;
-    Hand attachedHand;
-
-    Vector3 oldPosition;
-    Quaternion oldRotation;
     private Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers);
 
     private void HandHoverUpdate(Hand hand)

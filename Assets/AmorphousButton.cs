@@ -9,7 +9,7 @@ public class AmorphousButton : MonoBehaviour {
     public Color farColor, closeColor, activeColor;
     bool activated = false;
 
-    public UnityEvent testEvent;
+    public UnityEvent OnActivated;
 	// Update is called once per frame
 	void Update () {
         if (system != null && system.particleCount > 0)
@@ -32,6 +32,10 @@ public class AmorphousButton : MonoBehaviour {
             var mainSub = system.subEmitters.GetSubEmitterSystem(0).main;
             mainSub.startColor = activeColor;
             system.TriggerSubEmitter(0);
+
+            if (OnActivated != null) {
+                OnActivated.Invoke ();
+            }
             print ("active");
         }
     }

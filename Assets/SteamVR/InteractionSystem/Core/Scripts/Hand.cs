@@ -871,6 +871,16 @@ namespace Valve.VR.InteractionSystem
 				controllerObject.transform.localScale = controllerPrefab.transform.localScale;
 
 				this.BroadcastMessage( "OnHandInitialized", index, SendMessageOptions.DontRequireReceiver ); // let child objects know we've initialized
+
+				/* 
+				HandType h = GuessCurrentHandType();
+				if (h == HandType.Left) {
+					ControllerSwitcher.initLeftControl = controllerObject;
+				}
+				else if (h == HandType.Right) {
+					ControllerSwitcher.initRightControl = controllerObject;
+				}
+				*/
 			}
 		}
 	}
