@@ -14,6 +14,11 @@ public class GazeController : MonoBehaviour {
             if (c != null)
             {
                 c.staredAt = true;
+            } else {
+                AmorphousButton b = hit.transform.GetComponent<AmorphousButton>();
+                if (b != null) {
+                    b.primed = true;
+                }
             }
         }
 	}

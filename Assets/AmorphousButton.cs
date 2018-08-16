@@ -10,6 +10,10 @@ public class AmorphousButton : MonoBehaviour {
     bool activated = false;
 
     public UnityEvent OnActivated;
+
+    public bool primed;
+
+    public GameObject primeSignal;
 	// Update is called once per frame
 	void Update () {
         if (system != null && system.particleCount > 0)
@@ -38,5 +42,22 @@ public class AmorphousButton : MonoBehaviour {
             }
             print ("active");
         }
+    }
+
+    void LateUpdate () {
+        if (primeSignal != null) {
+            if (primed) {
+                if (!primeSignal.activeSelf) {
+                    primeSignal.SetActive(true);
+                }
+            } else {
+                if (primeSignal.activeSelf) {
+                    primeSignal.SetActive(false);
+                }
+            }
+
+            primed = false;
+        }
+       
     }
 }
