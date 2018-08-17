@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242493730159800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.151, y: 0.841, z: 0.13563177}
+  m_LocalPosition: {x: 5, y: 1.25, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   alignSpeed: 2
   laserMaterial: {fileID: 2100000, guid: 40c2fa71ec769a84f8c4c33e3c0ab3cc, type: 2}
 --- !u!135 &135576380643774216
