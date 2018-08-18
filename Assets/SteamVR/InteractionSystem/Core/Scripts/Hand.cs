@@ -91,7 +91,14 @@ namespace Valve.VR.InteractionSystem
 
 		SteamVR_Events.Action inputFocusAction;
 
+		public enum TeleportButton {
+			Touchpad,
+			Thumbstick
+		};
 
+		public TeleportButton teleportButton;
+
+		public bool thumbstickUpReleased, thumbstickUpPressed, primedForTeleport;
 		//-------------------------------------------------
 		// The Interactable object this Hand is currently hovering over
 		//-------------------------------------------------
@@ -686,6 +693,20 @@ namespace Valve.VR.InteractionSystem
 			{
 				hoveringInteractable.SendMessage( "HandHoverUpdate", this, SendMessageOptions.DontRequireReceiver );
 			}
+
+			//OpenVR Axis 2 = Windows MR thumbstick
+			Vector2 thumbstickVector = controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis2);
+			if (thumbstickVector.y > 0.8f) {
+				if (!primedForTeleport) {
+					thumbstickUpPressed = true;
+					primedForTeleport = true;
+				}
+			} else {
+				if (primedForTeleport) {
+					thumbstickUpReleased = true;
+				}
+			}
+			
 		}
 
 
@@ -697,6 +718,9 @@ namespace Valve.VR.InteractionSystem
 			{
 				AttachObject( controllerObject );
 			}
+
+			thumbstickUpPressed = false;
+			thumbstickUpReleased = false;
 		}
 
 

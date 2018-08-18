@@ -182,7 +182,7 @@ namespace Valve.VR.InteractionSystem
 
 			CheckForSpawnPoint();
 
-			Invoke( "ShowTeleportHint", 5.0f );
+			//Invoke( "ShowTeleportHint", 5.0f );
 		}
 
 
@@ -815,7 +815,7 @@ namespace Valve.VR.InteractionSystem
 					//Pointing at an unlocked teleport marker
 					teleportingToMarker = pointedAtTeleportMarker;
 					InitiateTeleportFade();
-
+					pointerHand.primedForTeleport = false;
 					CancelTeleportHint();
 				}
 			}
@@ -1089,7 +1089,12 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
 				{
-					return hand.controller.GetPressUp( SteamVR_Controller.ButtonMask.Touchpad );
+					if (hand.teleportButton == Hand.TeleportButton.Touchpad) {
+						return hand.controller.GetPressUp( SteamVR_Controller.ButtonMask.Touchpad );
+					} else if (hand.teleportButton == Hand.TeleportButton.Thumbstick) {
+						return hand.thumbstickUpReleased;
+					}
+					
 				}
 			}
 
@@ -1108,7 +1113,11 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
 				{
-					return hand.controller.GetPress( SteamVR_Controller.ButtonMask.Touchpad );
+					if (hand.teleportButton == Hand.TeleportButton.Touchpad) {
+						return hand.controller.GetPress( SteamVR_Controller.ButtonMask.Touchpad );
+					} else if (hand.teleportButton == Hand.TeleportButton.Thumbstick) {
+						return hand.primedForTeleport;
+					}
 				}
 			}
 
@@ -1127,7 +1136,12 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
 				{
-					return hand.controller.GetPressDown( SteamVR_Controller.ButtonMask.Touchpad );
+					if (hand.teleportButton == Hand.TeleportButton.Touchpad) {
+						return hand.controller.GetPressDown( SteamVR_Controller.ButtonMask.Touchpad );
+					} else if (hand.teleportButton == Hand.TeleportButton.Thumbstick) {
+						return hand.thumbstickUpPressed;
+					}
+					
 				}
 			}
 

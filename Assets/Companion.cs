@@ -67,7 +67,7 @@ public class Companion : MonoBehaviour {
             Transform cam = Camera.main.transform;
             float distanceOffset = 3;
 
-            Vector3 targetPoint = cam.position + cam.transform.right * 1 + cam.transform.forward * distanceOffset;
+            Vector3 targetPoint = cam.position + cam.transform.right * 1 + cam.transform.forward * distanceOffset + Vector3.up * -0.2f;
             transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
             Quaternion rotTo = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTo, rotateSpeed);
@@ -81,7 +81,7 @@ public class Companion : MonoBehaviour {
         while (true)
         {
             Transform cam = Camera.main.transform;
-            Vector3 targetPoint = cam.position + (transform.position - cam.position).normalized * 1;
+            Vector3 targetPoint = cam.position + (transform.position - cam.position).normalized * 1 + Vector3.up * -0.2f;
             targetPoint.y = cam.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
             Quaternion rotTo = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTo, rotateSpeed);
@@ -97,7 +97,7 @@ public class Companion : MonoBehaviour {
         while (true)
         {
             Vector3 targetPoint = transform.position;
-            targetPoint.y = Camera.main.transform.position.y + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
+            targetPoint.y = (Camera.main.transform.position.y - 0.2f) + Mathf.Sin(Time.time * hoverFrequency) * hoverMagnitude;
             transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
             yield return null;
         }
