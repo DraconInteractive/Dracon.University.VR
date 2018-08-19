@@ -816,6 +816,8 @@ namespace Valve.VR.InteractionSystem
 					teleportingToMarker = pointedAtTeleportMarker;
 					InitiateTeleportFade();
 					pointerHand.primedForTeleport = false;
+					pointerHand.thumbstickUpPressed = false;
+					pointerHand.thumbstickUpReleased = false;
 					CancelTeleportHint();
 				}
 			}

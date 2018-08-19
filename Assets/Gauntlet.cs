@@ -18,9 +18,12 @@ public class Gauntlet : MonoBehaviour {
 
 	public float followSpeed, rotateSpeed;
 
-	public UnityEvent GauntletAction;
+	public UnityEvent TriggerDownAction, TriggerUpAction;
 
 	public float thumbstickYPrevious, thumbstickYCurrent;
+
+	public LineRenderer pointer;
+	public GameObject pointerTarget = null;
 	void Update () {
 		
 		if (equippedHand != null) {
@@ -30,26 +33,50 @@ public class Gauntlet : MonoBehaviour {
 
 			if (equippedHand.controller != null) {
 				if (equippedHand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger)) {
-					if (GauntletAction != null) {
-						GauntletAction.Invoke();
+					if (TriggerDownAction != null) {
+						TriggerDownAction.Invoke();
+					}
+				}
+
+				if (equippedHand.controller.GetPressUp(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger)) {
+					if (TriggerDownAction != null) {
+						TriggerUpAction.Invoke();
 					}
 				}
 				
 				if (equippedHand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad)) {
 					Vector2 trackPadVector = equippedHand.controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0);
-					//Renderer r = GetComponent<Renderer>();
-					//r.material.EnableKeyword("_EMISSION");
-					//.material.SetColor("_EmissionColor", Color.Lerp (Color.blue, Color.red, trackPadVector.x));
 					CycleActiveUI(trackPadVector.x);
 				}
-				
+			}
+
+			if (pointer.enabled) {
+				Ray ray = new Ray (pointer.transform.position, pointer.transform.forward);
+				RaycastHit hit;
+
+				if (Physics.Raycast(ray, out hit, 100)) {
+					pointerTarget = hit.transform.gameObject;
+					pointer.SetPosition(1, hit.point);
+					pointer.startColor = Color.green;
+					pointer.endColor = Color.green;
+					
+				} else {
+					pointerTarget = null;
+					pointer.SetPosition(1, new Vector3(0,0,100));
+					pointer.startColor = Color.red;
+					pointer.endColor = Color.red;
+				}
+
+				if (pointerTarget != null) {
+					Companion c = GetComponent<Companion>();
+					if (c != null) {
+						c.staredAt = true;
+					}
+				}
 			}
 		}
 	}
 
-	void ManageThumbstickUpRelease () {
-		
-	}
 	private void HandHoverUpdate(Hand hand)
 	{
 		if (hand.GetStandardInteractionButtonDown() || ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip)))
@@ -110,4 +137,17 @@ public class Gauntlet : MonoBehaviour {
 		
 	}
 
+	public void ShowActionPointer () {
+		pointer.enabled = true;
+	}
+
+	public void HideActionPointer () {
+		pointer.enabled = false;
+	}
+
+	public void ActOnPointer () {
+		if (pointerTarget != null) {
+			
+		}
+	}
 }

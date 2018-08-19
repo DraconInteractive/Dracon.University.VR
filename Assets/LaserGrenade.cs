@@ -15,9 +15,16 @@ public class LaserGrenade : MonoBehaviour {
 	}
 	private void HandHoverUpdate( Hand hand )
 		{
-			if ( hand.GetStandardInteractionButtonDown() || ( ( hand.controller != null ) && hand.controller.GetPressDown( Valve.VR.EVRButtonId.k_EButton_Grip ) ) )
+			if ((hand.controller != null) && hand.controller.GetPressDown( Valve.VR.EVRButtonId.k_EButton_Grip ))
 			{
-				if ( hand.currentAttachedObject != gameObject )
+				bool b = false;
+				foreach (Hand.AttachedObject obj in hand.AttachedObjects) {
+					if (obj.attachedObject == gameObject) {
+						b = true;
+						break;
+					}
+				}
+				if (!b)
 				{
 
 					hand.HoverLock( GetComponent<Interactable>() );
@@ -27,10 +34,26 @@ public class LaserGrenade : MonoBehaviour {
 				else
 				{
 
-					hand.DetachObject( gameObject );
+					//hand.DetachObject( gameObject );
 
-					hand.HoverUnlock( GetComponent<Interactable>() );
+					//hand.HoverUnlock( GetComponent<Interactable>() );
 
+				}
+			}
+
+			if ((hand.controller != null) && hand.controller.GetPressUp (Valve.VR.EVRButtonId.k_EButton_Grip)) {
+				bool b = false;
+				foreach (Hand.AttachedObject obj in hand.AttachedObjects) {
+					if (obj.attachedObject == gameObject) {
+						b = true;
+						break;
+					}
+				}
+
+				if (b) {
+					hand.DetachObject(gameObject);
+
+					hand.HoverUnlock(GetComponent<Interactable>());
 				}
 			}
 		}
