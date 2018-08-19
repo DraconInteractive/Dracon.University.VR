@@ -488,7 +488,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4041540914136874, guid: f9525dc965969ed459db24b366e0358f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 14.531
+      value: 14.538
       objectReference: {fileID: 0}
     - target: {fileID: 4041540914136874, guid: f9525dc965969ed459db24b366e0358f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -496,7 +496,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4041540914136874, guid: f9525dc965969ed459db24b366e0358f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.735
+      value: 0.696
       objectReference: {fileID: 0}
     - target: {fileID: 4041540914136874, guid: f9525dc965969ed459db24b366e0358f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -899,11 +899,6 @@ Prefab:
     - target: {fileID: 4444470771238088, guid: 76b737f564a41c44283a987401a91329, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114360890995073068, guid: 76b737f564a41c44283a987401a91329,
-        type: 2}
-      propertyPath: allowToggleTo2D
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76b737f564a41c44283a987401a91329, type: 2}
@@ -2406,9 +2401,9 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288741546399384, guid: c7e0641c803f7df4c96b13349c8fb0e0, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 4759522379777704, guid: c7e0641c803f7df4c96b13349c8fb0e0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7e0641c803f7df4c96b13349c8fb0e0, type: 2}

@@ -129,13 +129,14 @@ MonoBehaviour:
     m_Bits: 512
   alignSpeed: 2
   laserMaterial: {fileID: 2100000, guid: 40c2fa71ec769a84f8c4c33e3c0ab3cc, type: 2}
+  throwForce: 4
 --- !u!135 &135576380643774216
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242493730159800}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4abca50338794b542b02df4e7ec41699, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

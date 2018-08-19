@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33570917576359998}
   - component: {fileID: 23131462281763350}
   - component: {fileID: 135023940778068324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4728611113203726}
   - component: {fileID: 114165058127170514}
   - component: {fileID: 114348704076022200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TestControllerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

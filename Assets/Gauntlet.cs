@@ -23,10 +23,14 @@ public class Gauntlet : MonoBehaviour {
 	public float thumbstickYPrevious, thumbstickYCurrent;
 
 	public LineRenderer pointer;
-	public GameObject pointerTarget = null;
+	public GameObject pointerTarget = null, pointerMarker;
+
+	public LayerMask pointerMask;
+
 	void Update () {
 		
 		if (equippedHand != null) {
+
 			if (equippedHand.controller != null && equippedHand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_ApplicationMenu)) {
 				UIContainer.SetActive(!UIContainer.activeSelf);
 			}
@@ -50,21 +54,23 @@ public class Gauntlet : MonoBehaviour {
 				}
 			}
 
-			if (pointer.enabled) {
+			if (pointer.enabled && equippedHand.AttachedObjects.Count <= 2) {
 				Ray ray = new Ray (pointer.transform.position, pointer.transform.forward);
 				RaycastHit hit;
 
-				if (Physics.Raycast(ray, out hit, 100)) {
+				if (Physics.Raycast(ray, out hit, 100, pointerMask)) {
 					pointerTarget = hit.transform.gameObject;
-					pointer.SetPosition(1, hit.point);
+					pointer.SetPosition(1, new Vector3(0,0, hit.distance * 10));
 					pointer.startColor = Color.green;
 					pointer.endColor = Color.green;
+					pointerMarker.transform.position = hit.point;
 					
 				} else {
 					pointerTarget = null;
 					pointer.SetPosition(1, new Vector3(0,0,100));
 					pointer.startColor = Color.red;
 					pointer.endColor = Color.red;
+					pointerMarker.transform.localPosition = new Vector3(0,0,100);
 				}
 
 				if (pointerTarget != null) {
@@ -138,7 +144,9 @@ public class Gauntlet : MonoBehaviour {
 	}
 
 	public void ShowActionPointer () {
-		pointer.enabled = true;
+		if (equippedHand.AttachedObjects.Count <= 2) {
+			pointer.enabled = true;
+		}
 	}
 
 	public void HideActionPointer () {

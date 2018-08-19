@@ -9,7 +9,7 @@ public class LaserGrenade : MonoBehaviour {
 	public LayerMask groundMask;
 	public float alignSpeed;
 	public Material laserMaterial;
-
+	public float throwForce;
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 	}
@@ -71,12 +71,12 @@ public class LaserGrenade : MonoBehaviour {
 		private void OnDetachedFromHand( Hand hand )
 		{
 			rb.isKinematic = false;
-			rb.velocity = hand.controller.velocity * 3;
+			rb.velocity = hand.GetTrackedObjectVelocity() * throwForce;
 			StartCoroutine(GrenadeRelease());
 		}
 
 		IEnumerator GrenadeRelease () {
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.75f);
 
 			Ray ray = new Ray (transform.position, Vector3.down);
 			RaycastHit hit;
@@ -103,8 +103,8 @@ public class LaserGrenade : MonoBehaviour {
 					g.transform.parent = this.transform;
 
 					LineRenderer l = g.AddComponent<LineRenderer>();
-					l.startWidth = 0.05f;
-					l.endWidth = 0.05f;
+					l.startWidth = 0.025f;
+					l.endWidth = 0.025f;
 					l.material = laserMaterial;
 					l.positionCount = 2;
 

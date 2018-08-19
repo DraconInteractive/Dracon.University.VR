@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4690620272749570}
   - component: {fileID: 114592667293604440}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PostGlobal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4679180096564572}
   - component: {fileID: 114235097901485450}
   - component: {fileID: 54631940664485362}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: FallbackHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 223631384565305968}
   - component: {fileID: 114886177591162598}
   - component: {fileID: 114187934273745556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ModeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4134269105421698}
   - component: {fileID: 114466568626894242}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33883672246507290}
   - component: {fileID: 23844089417317100}
   - component: {fileID: 136148114707755138}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Capsule (1)
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4989675669659890}
   - component: {fileID: 114633807463073610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 120766189950167548}
   - component: {fileID: 114559313510155232}
   - component: {fileID: 54120888597832614}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Hand1
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 224986128271111128}
   - component: {fileID: 222306076821477450}
   - component: {fileID: 114228101134587848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PathFindMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4518876962390780}
   - component: {fileID: 114724304024012362}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: HandUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 224332121801081858}
   - component: {fileID: 222713764056756462}
   - component: {fileID: 114554464165914656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CombatMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 224675763255144712}
   - component: {fileID: 222537957382228994}
   - component: {fileID: 114034449037813424}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4372352737449596}
   - component: {fileID: 114862417669192732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: '[SteamVR]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4537967429523378}
   - component: {fileID: 114480622953137788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DebugUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4034694626043902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NoSteamVRFallbackObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 224631327675398986}
   - component: {fileID: 222353197839299618}
   - component: {fileID: 114482589553562608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4954946265614190}
   - component: {fileID: 114699348855056752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4455546055317128}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Attach_ControllerTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 224354141293177046}
   - component: {fileID: 222406547538525442}
   - component: {fileID: 114284456769693374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 92062356837047290}
   - component: {fileID: 132588505776848738}
   - component: {fileID: 114820835236026170}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: _Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4376088459991588}
   - component: {fileID: 114091867627633532}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 4693494141842612}
   - component: {fileID: 33154659159137900}
   - component: {fileID: 23587944417002236}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 33171619724231928}
   - component: {fileID: 23619396336494900}
   - component: {fileID: 135861005608118346}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 4419550006535042}
   - component: {fileID: 114334228527843840}
   - component: {fileID: 54875157443854804}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Hand2
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 114280354633554216}
   - component: {fileID: 114505062260291834}
   - component: {fileID: 114151379509592044}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540071768329100}
   - component: {fileID: 114406838050506354}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: GazeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 136038068581883126}
   - component: {fileID: 114861284803775030}
   - component: {fileID: 54508387847008136}
-  m_Layer: 27
+  m_Layer: 10
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4651479423334230}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: '[Status]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 4507132858401632}
   - component: {fileID: 135229636440264742}
   - component: {fileID: 54961625036608718}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: HeadCollider
   m_TagString: Head
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4542178672749350}
   - component: {fileID: 81536527817789084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FollowHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4424242639260938}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Attach_ControllerTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 33152695215894232}
   - component: {fileID: 23398260717684232}
   - component: {fileID: 135541755496196404}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 114845073591759122}
   - component: {fileID: 114779977709017630}
   - component: {fileID: 114970324635720536}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InputModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 82069640311214898}
   - component: {fileID: 114499932193895458}
   - component: {fileID: 114678815220222820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player_Mine
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 224761302103037616}
   - component: {fileID: 222031157087450122}
   - component: {fileID: 114978537338517588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 4677874796110980}
   - component: {fileID: 20422687664767502}
   - component: {fileID: 114516352017900512}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FallbackObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 33279527473714530}
   - component: {fileID: 23266830358995064}
   - component: {fileID: 136360390390279148}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4674450467902106}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HandUIPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 23146086311275636}
   - component: {fileID: 33179278288849554}
   - component: {fileID: 114276962628376454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 124961413365659676}
   - component: {fileID: 114723285835743866}
   - component: {fileID: 114985363036543690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VRCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 224605642320355540}
   - component: {fileID: 222763096572194468}
   - component: {fileID: 114892837190879934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DefaultMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 33451905227086642}
   - component: {fileID: 23606114123234116}
   - component: {fileID: 135560219736059498}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4817475610226316}
   - component: {fileID: 114710677294875224}
-  m_Layer: 26
+  m_Layer: 10
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4222416665566412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SteamVRObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1938,6 +1938,11 @@ MonoBehaviour:
   controllerPrefab: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
+  teleportButton: 0
+  thumbstickUpReleased: 0
+  thumbstickUpPressed: 0
+  primedForTeleport: 0
+  thumbstickY: 0
 --- !u!114 &114276962628376454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2043,6 +2048,11 @@ MonoBehaviour:
   controllerPrefab: {fileID: 168468, guid: 3f39fc63a93686e4a8e9168ee73f24d9, type: 2}
   showDebugText: 0
   spewDebugText: 0
+  teleportButton: 0
+  thumbstickUpReleased: 0
+  thumbstickUpPressed: 0
+  primedForTeleport: 0
+  thumbstickY: 0
 --- !u!114 &114360890995073068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2066,7 +2076,7 @@ MonoBehaviour:
   rigSteamVR: {fileID: 1969971003570858}
   rig2DFallback: {fileID: 1218713118122892}
   audioListener: {fileID: 4542178672749350}
-  allowToggleTo2D: 1
+  allowToggleTo2D: 0
 --- !u!114 &114406838050506354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2291,6 +2301,11 @@ MonoBehaviour:
   controllerPrefab: {fileID: 168468, guid: 3f39fc63a93686e4a8e9168ee73f24d9, type: 2}
   showDebugText: 0
   spewDebugText: 0
+  teleportButton: 0
+  thumbstickUpReleased: 0
+  thumbstickUpPressed: 0
+  primedForTeleport: 0
+  thumbstickY: 0
 --- !u!114 &114699348855056752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2897,7 +2912,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 962, y: 536}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224332121801081858
 RectTransform:
